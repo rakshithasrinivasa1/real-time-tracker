@@ -33,3 +33,10 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{
     }
     
  });
+
+ socket.on("user-disconnected",(id)=>{
+    if(markers[id]){
+        map.removeLayer(markers[id]);
+        delete markers[id];
+    }
+ })
